@@ -33,6 +33,7 @@ public class ChatServerSender implements Runnable {
 
     @Override
     public void run() {
+        Thread.currentThread().setDaemon(true);
         while (true) {
             String message = sharedQueue.pop();
             synchronized (clientOutputStreams) {
